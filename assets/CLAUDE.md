@@ -18,5 +18,8 @@
 9. **`Package.resolved` commitado**; toolchain e SDK declarados; **warnings são erros** no CI.
 10. **Teste:** `swift-testing` no novo; unidade **sem device**; `XCTAssertNoThrow` sem asserção de
     valor não testa nada.
+11. **Orquestrador não desenvolve; subagent barato executa.** O agent principal só planeja, despacha e
+    revisa; ação onerosa vira micro-tasks para subagents em `sonnet` (falhou → o mesmo subagent corrige →
+    re-decompõe → só então `opus`, com motivo). Detalhe: `schematize-engineering` → `references/orquestracao.md` §9.
 
 Gate: `bash .claude/skills/schematize-swift/scripts/check-swift.sh .`

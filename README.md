@@ -23,7 +23,7 @@ bash /tmp/skill-swift/install.sh .
 
 ## O que tem dentro
 
-- **SKILL.md** — o contrato: 10 pisos inegociáveis + mapa de references.
+- **SKILL.md** — o contrato: 11 pisos inegociáveis + mapa de references.
 - **references/** — `piso` (opcional, concorrência, ARC, erro, segurança, teste), `plataforma`
   (SwiftPM, CI, assinatura, `@available`, interop), `stack-versoes` (anexo volátil, datado).
 - **scripts/** — `check-swift.sh` (gate textual, honesto sobre o alcance) e `check-swift.test.sh`
