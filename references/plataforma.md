@@ -22,7 +22,7 @@
 - **MUST:** build e teste no CI a cada PR (`xcodebuild test` / `swift test`), com o **simulador
   fixado** (nome e versão) — simulador flutuante é flaky garantido.
 - **Assinatura em cofre**, nunca no repo: certificado e provisioning profile entram por variável
-  segura no runner (piso da `schematize-mobile`, `references/entrega-lojas.md`).
+  segura no runner (piso da `schematize-mobile → references/entrega-lojas.md`; dependência: instale a `schematize-mobile`).
 - **Artefato imutável com proveniência**: o `.ipa`/`.app` que foi testado é o que sobe, com o commit
   SHA registrado.
 

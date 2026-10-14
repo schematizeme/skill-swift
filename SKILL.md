@@ -2,7 +2,8 @@
 name: schematize-swift
 metadata:
   version: 0.2.2
-description: O piso de SWIFT da casa (cliente Apple — iOS/iPadOS/macOS). Rege opcional como tipo e não sugestão (**force-unwrap é `fatalError` adiado**, e no app instalado é crash na mão do usuário); concorrência estruturada com `async/await` + **strict concurrency do Swift 6** (data race vira erro de compilação), `@MainActor` só no que toca UI, `Sendable` como contrato, cancelamento cooperativo, e a reentrância do `actor` (o estado muda durante o `await`); memória sob ARC (ciclo de retenção é vazamento; `[weak self]`; `unowned` é crash, não `nil`); erro como valor tipado, nunca `catch {}`; segredo nunca no bundle e credencial no Keychain, nunca `UserDefaults`; SwiftPM com `Package.resolved` commitado; e a fronteira com a `schematize-mobile`, que manda no que é de app. Traz gate executável.
+description: >-
+  Piso de Swift da casa para cliente Apple (iOS/iPadOS/macOS), sob a schematize-mobile. Use ao tocar Package.swift, *.swift ou projeto Xcode (*.xcodeproj): sem force-unwrap, concorrência estrita, ARC e ciclos de retenção, Keychain, SwiftPM com lockfile. IAM, ops e lojas ficam com a schematize-mobile. Traz template de CI.
 ---
 <!-- cross-skill: linguagens.md -> schematize-engineering -->
 
@@ -14,6 +15,36 @@ piso de **app** (offline-first, IAM mobile, push, lojas, testes no device) é da
 toolchain.
 
 **Versão:** skill `schematize-swift` v0.2.2. Changelog em `CHANGELOG.md`.
+
+## Precedência e herança (leia antes de divergir)
+
+Esta skill é o recorte **Swift** das linguagens **sancionadas fora do rol de backend** (`schematize-engineering` → `references/linguagens.md` §2.2): cliente **iOS/iPadOS/macOS**, **sob a `schematize-mobile`**.
+
+1. **Onde esta skill divergir da base, a BASE MANDA.** Aqui mora a especialização — a lib, o gate, a
+   sintaxe da linguagem. Divergência de *piso* é defeito desta skill, não variante local.
+2. **O que não está repetido aqui é HERDADO, não dispensado.** Valem integralmente, sem cópia local:
+   - **§28 Archive** — `<projeto>/<projeto>_archive/` é **repositório git próprio, PRIVADO e
+     obrigatório**, criticidade 0 (`schematize-archive`).
+   - **§35 Definition of Done** e a lista de anti-padrões (citada por **título**, nunca por número).
+   - **§39 Índice/MAPA** — enumeração exaustiva (uma entrada por unidade chamável, `M == N`) e grafo
+     com arestas em ASCII (`A -> B`), nunca a seta unicode.
+   - **IAM** (`schematize-engineering` → `references/iam.md`): identidade ≠ email, ≥2 fatores, ReBAC
+     multi-tenant, argon2id-only para senha nova, sessão longa e logout irreversível.
+   - **Efeito externo** nunca sai de não-produção (`schematize-engineering` →
+     `references/efeitos-externos.md`).
+   - **Orquestração** (`schematize-engineering` → `references/orquestracao.md` §9): o principal não
+     desenvolve; subagents `sonnet` por padrão, `opus` só após falha.
+3. **Delegado à `schematize-mobile`, por nome:** IAM mobile (public client OIDC/PKCE, passkeys,
+   Keychain/Keystore), ops, offline/sync, push, testes no device e entrega nas lojas
+   (`schematize-mobile` → `references/testes-mobile.md`, `schematize-mobile` →
+   `references/entrega-lojas.md`; comandos `/mobile-auth`, `/mobile-offline`, `/mobile-test`,
+   `/mobile-release`). **Dependência:** instale a `schematize-mobile` junto; sem ela esses
+   arquivos não existem no seu ambiente e o piso de app fica sem dono.
+4. **QA, ops, IAM e índice não têm comando próprio aqui:** vêm da base `/eng-*`. Para trabalho
+   contínuo use `/eng-overdev`; para planejar `/eng-plan`; para varrer a base `/eng-scan`; para
+   revisão geral `/eng-review` (e `/eng-ops`, `/eng-iam`, `/eng-index`). Os comandos
+   `/swift-*` cobrem só o piso da linguagem.
+
 
 ## Por que ela nasceu
 
@@ -49,6 +80,8 @@ Mapa de references:
 | Opcional, concorrência estruturada (Swift 6 mode, `@MainActor`, `Sendable`, cancelamento, reentrância do actor), ARC e ciclo de retenção, erro tipado, segurança do cliente, teste | `references/piso.md` |
 | SwiftPM e `Package.resolved`, build no CI com simulador fixado, assinatura em cofre, `@available`, Swift fora do iOS, interop Obj-C/C | `references/plataforma.md` |
 | Versões e ferramental, com data de verificação **e a ressalva de que a toolchain não roda na máquina de referência** | `references/stack-versoes.md` |
+
+Assets prontos para copiar: `assets/ci/github-actions-ci.yml` (swift-format lint, swift test com strict concurrency) · `assets/lint/.swift-format`.
 
 ## Pisos inegociáveis (vetam o atalho)
 

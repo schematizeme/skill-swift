@@ -82,5 +82,5 @@ Convenção: **MUST** = o gate cobra · **VETADO** = piso.
 
 A disciplina é da **`schematize-qa`**; aqui, o que muda: **`swift-testing`** (`@Test`, `#expect`)
 para código novo, XCTest onde já existe; teste de unidade **sem device**, o resto na pirâmide da
-`schematize-mobile` (`references/testes-mobile.md`). **`XCTAssertNoThrow` não testa nada** se você
+`schematize-mobile` (`schematize-mobile → references/testes-mobile.md`; dependência: instale a `schematize-mobile`). **`XCTAssertNoThrow` não testa nada** se você
 não asserta o valor — o verde que não reprova é o que a casa chama de verde mentiroso.
