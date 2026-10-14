@@ -20,7 +20,7 @@ toolchain.
 
 ## Precedência e herança (leia antes de divergir)
 
-Esta skill é o recorte **Swift** das linguagens **sancionadas fora do rol de backend** (`schematize-engineering` → `references/linguagens.md` §2.2): cliente **iOS/iPadOS/macOS**, **sob a `schematize-mobile`**.
+<!-- herdado:engineering/precedencia:mobile intro="Esta skill é o recorte **Swift** das linguagens **sancionadas fora do rol de backend** (`schematize-engineering` → `references/linguagens.md` §2.2): cliente **iOS/iPadOS/macOS**, **sob a `schematize-mobile`**." cmd="swift" -->Esta skill é o recorte **Swift** das linguagens **sancionadas fora do rol de backend** (`schematize-engineering` → `references/linguagens.md` §2.2): cliente **iOS/iPadOS/macOS**, **sob a `schematize-mobile`**.
 
 1. **Onde esta skill divergir da base, a BASE MANDA.** Aqui mora a especialização — a lib, o gate, a
    sintaxe da linguagem. Divergência de *piso* é defeito desta skill, não variante local.
@@ -45,8 +45,7 @@ Esta skill é o recorte **Swift** das linguagens **sancionadas fora do rol de ba
 4. **QA, ops, IAM e índice não têm comando próprio aqui:** vêm da base `/eng-*`. Para trabalho
    contínuo use `/eng-overdev`; para planejar `/eng-plan`; para varrer a base `/eng-scan`; para
    revisão geral `/eng-review` (e `/eng-ops`, `/eng-iam`, `/eng-index`). Os comandos
-   `/swift-*` cobrem só o piso da linguagem.
-
+   `/swift-*` cobrem só o piso da linguagem.<!-- /herdado -->
 
 ## Por que ela nasceu
 

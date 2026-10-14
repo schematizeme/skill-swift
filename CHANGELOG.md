@@ -19,6 +19,9 @@ Saneamento: description válida e ancorada nos artefatos, herança explícita da
 - Anexo volátil: Swift 6.2 Approachable Concurrency e default MainActor vs. o piso, exigência de Xcode da App Store.
 - **Description** reduzida (~270 chars) para caber no orçamento de listagem (soma das 31 skills ≤ 8500; o Claude Code corta a listagem acima disso).
 
+### Alterado
+- Bloco "Precedência e herança" passa a ser herdado da base (`schematize-engineering` → `assets/herdados/precedencia.md`), gerado por `tools/sync-herdados.mjs`; corpo sem mudança de conteúdo.
+
 ## [0.2.2] — 2026-09-30
 O piso de orquestração passa a ser **herdado** da base em vez de copiado à mão: uma mudança na engineering não exige mais editar 38 arquivos.
 
