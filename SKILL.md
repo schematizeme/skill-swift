@@ -3,9 +3,8 @@ name: schematize-swift
 metadata:
   version: 0.3.0
 description: >-
-  Piso de Swift para cliente Apple (iOS/iPadOS/macOS), sob a schematize-mobile. Use ao tocar Package.swift, *.swift
-  ou *.xcodeproj: sem force-unwrap, concorrência estrita, ciclos de retenção, Keychain, SwiftPM com lockfile. IAM,
-  ops e lojas: schematize-mobile. Traz CI.
+  Piso de Swift para Apple, sob a schematize-mobile. Use ao tocar Package.swift, *.swift ou *.xcodeproj: sem
+  force-unwrap, concorrência estrita, ciclos de retenção, Keychain, SwiftPM lockfile. IAM e lojas: mobile. Traz CI.
 ---
 <!-- cross-skill: linguagens.md -> schematize-engineering -->
 
